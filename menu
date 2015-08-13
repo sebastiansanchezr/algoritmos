@@ -1,0 +1,82 @@
+// menu.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include "stdlib.h"
+#include <iostream>
+#include "math.h"
+using namespace std;
+
+void main()
+{float A, Prom, May, n1,n2,n3, a, b, L;
+ int op;
+
+ do{
+ cout<<"*******MENU********";
+ cout<<endl<<"1.- Area de un Cuadrado";
+ cout<<endl<<"2.- Promedio de 3 numeros";
+ cout<<endl<<"3.- Mayor de dos numeros";
+ cout<<endl<<"0.- Salir";
+ cout<<endl;
+ cin>>op;
+  system("cls");
+
+
+ switch(op)
+ {
+ case 1:
+     cout<<endl<<"Ingrese el lado del cuadrado: ";
+      cin>>L;
+	  A=L*L;
+	  cout<<endl<<"El area del cuadrado es: "<<A;
+	  cout<<endl;
+	  system("pause");
+	  system("cls");
+	  break;
+	  
+     
+ case 2:
+	 cout<<endl<<"ingrese el 1er numero: ";
+	  cin>>n1;
+	  cout<<endl<<"ingrese el 2do numero: ";
+	  cin>>n2;
+	  cout<<endl<<"ingrese el 3er numero: ";
+	  cin>>n3;
+	  Prom=(n1+n2+n3)/3;
+	  cout<<endl<<"El promedio de los 3 numeros es: "<<Prom;
+	  cout<<endl;
+	  system("pause");
+	  system("cls");
+	  break;
+	 
+ case 3:
+	  cout<<endl<<"Ingrese un numero: ";
+	  cin>>a;
+	  cout<<endl<<"Ingrese otro numero: ";
+	  cin>>b;
+	  if(a>b)
+	  {cout<<endl<<"El numero ingresado"<<a<<" es mayor que "<<b;
+	  }else
+	  {if(b>a)
+	   {cout<<endl<<"El numero ingresado"<<b<<" es mayor que "<<a;
+	   }
+	  else
+	  {cout<<endl<<"Los numeros son iguales!!!";
+	  }
+	  
+	 }
+	  cout<<endl;
+	 system("pause");
+	  system("cls");
+	  
+	  break;
+ case 0:
+	 cout<<endl<<"Salir...";
+	 break;
+
+	 default: cout<<endl<<"Opcion invalida!!!";
+ }
+ }while(op!=0);
+ getch();
+}
