@@ -12,7 +12,7 @@ float SB,SN,sum,prom;
 cout<<"Ingrese el numero de empleados: "<<endl;
 cin>>N;
 sum=0;
-SM=1400;
+SM=1420;
 for(i=0;i<N;i++)
 {cout<<"Ingrese su salrio Bruto: "<<endl;
  cin>>SB;
