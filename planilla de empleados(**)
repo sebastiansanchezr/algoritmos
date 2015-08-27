@@ -1,0 +1,54 @@
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "math.h"
+#define IVA 0.13
+#define SM 1640
+#define AFP 0.121
+#define ADIC 0.01
+#define TAM 100
+using namespace std;
+
+void cargarSB(float SB[], int n);
+void mostrar(float salario[], int n);
+
+void main()
+{float salario[TAM], SB[TAM];
+ int n;
+ do{
+	 cout<<"Ingrese el numero de empleados:";
+	 cin>>n;
+ }while((n<0)||(n>TAM));
+ cargarSB(SB,n);
+ mostrar(salario,SB,n);
+ getch();
+}
+
+void cargarSB(float SB[], int n)
+{for(int i=0;i<n;i++)
+ {cout<<"ingrese el salario bruto del empleado "<<i<<": ";
+  cin>>SB[i];
+ }
+}
+void mostrar(float salario[],float SB[], int n)
+{cout<<"**********PLANILLA DE EMPLEADOS*********"<<endl;
+ cout<<"Nro.  Salario bruto\t IVA\t AFP\t Adic\t Salario Neto";
+ for(int i=0;i<n;i++)
+ {
+  if(SB[i]>15000)
+  {salario[i]=SB[i]-(SB[i]*AFP)-(SB[i]*IVA)-(SB[i]*ADIC);
+   cout<<i+1<<"   "<<SB[i]<<"\t"<<SB[i]*IVA<<"\t"<<SB[i]*AFP<<"\t"<<SB[i]*ADIC<<"\t"<<salario[i];
+  }else
+   {if(SB[i]>(2*SM))
+     {salario[i]=SB[i]-(SB[i]*AFP)-(SB[i]*IVA);
+   cout<<i+1<<"   "<<SB[i]<<"\t"<<SB[i]*IVA<<"\t"<<SB[i]*AFP<<"\t"<<"0"<<"\t"<<salario[i];
+     }
+    else
+     {salario[i]=SB[i]-(SB[i]*AFP);
+   cout<<i+1<<"   "<<SB[i]<<"\t"<<"0"<<"\t"<<SB[i]*AFP<<"\t"<<"0"<<"\t"<<salario[i];
+     }
+   
+  }
+ }
+}
+
