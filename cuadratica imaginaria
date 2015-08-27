@@ -1,0 +1,62 @@
+// funcion cuadratica.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "math.h"
+using namespace std;
+
+void cuadratica(float a, float b, float c, float &x1, float &x2);
+float discriminante(float a, float b, float c);
+void cuadraticaImaginaria(float a, float b, float c, float &xa, float &xb);
+void unicoResultado(float a, float b, float &x);
+
+void main()
+{float a,b,c,x1,x2,i,x,xa,xb;
+  cout<<"Ingrese a: ";
+  cin>>a;
+  cout<<"Ingrese b: ";
+  cin>>b;
+  cout<<"Ingrese c: ";
+  cin>>c;
+  i=discriminante(a,b,c);
+  if(i>0)
+  {cuadratica(a,b,c,x1,x2);
+   cout<<"x1="<<x1<<endl;
+   cout<<"x2="<<x2;
+  }else
+   {if(i=0)
+    {unicoResultado(a,b,x);
+    cout<<"x= "<<x;
+   }else
+    {cuadraticaImaginaria(a,b,c,xa,xb);
+     cout<<"x1="<<xa<<"i"<<endl;
+     cout<<"x2="<<xb<<"i";
+    }
+  }
+  getch();
+}
+
+float discriminante(float a, float b, float c)
+{float i;
+ i=pow(b,2)-4*a*c;
+ return(i);
+}
+
+void cuadratica(float a, float b, float c, float &x1, float &x2)
+{float i;
+ i=discriminante(a,b,c);
+ x1=(-b+(sqrt(i)))/(2*a);
+ x2=(-b-(sqrt(i)))/(2*a);
+}
+
+void cuadraticaImaginaria(float a, float b, float c, float &xa, float &xb)
+{float i;
+ i=discriminante(a,b,c);
+ xa=((-b+(sqrt(-i)))/(2*a));
+ xb=((-b-(sqrt(-i)))/(2*a));
+}
+void unicoResultado(float a, float b, float &x)
+{x=-b/(2*a);
+}
