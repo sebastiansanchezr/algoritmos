@@ -1,0 +1,57 @@
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>
+#define FIL 30
+#define COL 30
+using namespace std;
+
+void llenar_diagonales(int M[FIL][COL], int n);
+void mostrar(int M[FIL][COL],int n, int m);
+
+void main()
+{int matrix[FIL][COL], n;
+ cout<<"ingrese el tamanho que desea la matriz cuadrada: ";
+ cin>>n;
+ cout<<endl<<"El numero natural mayor sera "<<n*n<<endl<<endl;
+ llenar_diagonales(matrix,n);
+ mostrar(matrix,n,n);
+ getch();
+}
+
+void mostrar(int M[FIL][COL],int n, int m)
+{int i, j;
+ 
+  for(i=0;i<n;i++)
+   {for(j=0;j<m;j++)
+       cout<<M[i][j]<<"\t";   
+	cout<<endl;
+   }
+
+}
+
+
+void llenar_diagonales(int M[FIL][COL], int n)
+{int fil,col,aux,c=1;
+ for(aux=0;aux<n;aux++)
+ {col=0;
+ fil=aux;
+ while(fil>=0)
+ {M[fil][col]=c;
+ fil--;
+ col++;
+ c++;
+ }
+ }
+ for(aux=1;aux<n;aux++)
+ {fil=n-1;
+  col=aux;
+  while(col<n)
+  {M[fil][col]=c;
+ fil--;
+ col++;
+ c++;
+  }
+ }
+}
