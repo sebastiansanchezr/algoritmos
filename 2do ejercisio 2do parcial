@@ -1,0 +1,31 @@
+#include "stdafx.h"
+#include<iostream>
+#include "conio.h"
+#include <string>
+#define MAX 30
+#define F 30
+#define C 30
+using namespace std;
+
+struct vector
+{ string vec[MAX];
+};
+
+void recibir(string v[],int n);
+void cargar(matriz A[F][C],int n);
+void mostrar(matriz vec[],int n,string cad);
+
+void main()
+{ int n;
+vector mat[F][C];
+string vec[MAX];
+cout<<"ingrese el numero de elemento: ";
+cin>>n;
+recibir(vec,n);
+cargar(vec,n);
+getch();
+
+}
+
+void recibir(string v[],int n)
+{
